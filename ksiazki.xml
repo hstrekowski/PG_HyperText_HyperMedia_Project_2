@@ -2,7 +2,6 @@
 <Hobby_Czytelnicze xmlns="http://example.org/hobby"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:h="http://example.org/hobby"
-    xsi:schemaLocation="http://example.org/hobby ksiazki.xsd"
     imie_autora="Hubert" nazwisko_autora="Strękowski" indeks_autora="208381">
 
     <Podsumowanie>
