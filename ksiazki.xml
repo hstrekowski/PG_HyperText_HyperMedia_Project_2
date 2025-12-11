@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hobby_Czytelnicze xmlns="http://example.org/hobby"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:h="http://example.org/hobby"
+    xsi:schemaLocation="http://example.org/hobby ksiazki.xsd"
+    imie_autora="Hubert" nazwisko_autora="Strękowski" indeks_autora="208381">
+
+    <Podsumowanie>
+        <Opis>
+            <Opis_Rozwiniety>
+                <Tekst>Czytanie to dla mnie forma relaksu i poszerzania wiedzy.</Tekst>
+                <Korzysci>
+                    <Punkt>Redukcja stresu</Punkt>
+                    <Punkt>Rozwój słownictwa</Punkt>
+                    <Punkt>Rozwój osobisty</Punkt>
+                </Korzysci>
+            </Opis_Rozwiniety>
+        </Opis>
+        <Statystyki>
+            <Statystyki_Roczne rok="2024">
+                <Liczba_Przeczytanych jednostka="sztuk">35</Liczba_Przeczytanych>
+                <Liczba_Stron jednostka="stron">12540</Liczba_Stron>
+                <Laczny_Czas_Czytania jednostka="godzin">285</Laczny_Czas_Czytania>
+            </Statystyki_Roczne>
+            <Statystyki_Format>
+                <Format nazwa="Papier" jednostka="%">65</Format>
+                <Format nazwa="E-book" jednostka="%">35</Format>
+            </Statystyki_Format>
+        </Statystyki>
+    </Podsumowanie>
+
+    <Ulubione_Gatunki>
+        <Gatunek priorytet="1">
+            <Nazwa>Fantastyka</Nazwa>
+            <Opis>
+                Światy magii, podróże w czasie i alternatywne rzeczywistości.
+            </Opis>
+            <Przykladowi_Autorzy>
+                <Autor rola="kluczowy">
+                    <Imie>Terry</Imie>
+                    <Nazwisko>Pratchett</Nazwisko>
+                    <Narodowosc>brytyjska</Narodowosc>
+                </Autor>
+                <Autor rola="wazny">
+                    <Imie>Ursula K.</Imie>
+                    <Nazwisko>Le Guin</Nazwisko>
+                    <Narodowosc>amerykańska</Narodowosc>
+                </Autor>
+            </Przykladowi_Autorzy>
+        </Gatunek>
+
+        <Gatunek priorytet="2">
+            <Nazwa>Kryminał</Nazwa>
+            <Opis>
+                Zagadki, śledztwa i nieoczekiwane zwroty akcji. Skupia się na logicznym
+                rozwiązywaniu złożonych spraw kryminalnych.
+            </Opis>
+            <Przykladowi_Autorzy>
+                <Autor rola="kluczowy">
+                    <Imie>Agatha</Imie>
+                    <Nazwisko>Christie</Nazwisko>
+                    <Narodowosc>brytyjska</Narodowosc>
+                </Autor>
+                <Autor rola="poboczny">
+                    <Imie>Raymond</Imie>
+                    <Nazwisko>Chandler</Nazwisko>
+                    <Narodowosc>amerykańska</Narodowosc>
+                </Autor>
+            </Przykladowi_Autorzy>
+        </Gatunek>
+    </Ulubione_Gatunki>
+
+
+    <Ksiazki>
+        <Ksiazka id="101" status="przeczytana" ocena="5">
+            <Tytul h:jezyk="pl">Władca Pierścieni: Drużyna Pierścienia</Tytul>
+            <Autor rola="kluczowy">
+                <Imie>J.R.R.</Imie>
+                <Nazwisko>Tolkien</Nazwisko>
+                <Narodowosc>brytyjska</Narodowosc>
+            </Autor>
+            <Dane_Wydawnicze>
+                <Rok_Wydania_Polskiego>1961</Rok_Wydania_Polskiego>
+                <Wydawnictwo nazwa_pelna="Zysk i S-ka Wydawnictwo">
+                    <Nazwa_Skrocona>Zysk i S-ka</Nazwa_Skrocona>
+                    <Siedziba_Glowna>
+                        <Adres_Fizyczny>
+                            <Kraj>Polska</Kraj>
+                            <Miasto>Poznań</Miasto>
+                        </Adres_Fizyczny>
+                    </Siedziba_Glowna>
+                </Wydawnictwo>
+                <ISBN typ="ISBN-13">978-8377852360</ISBN>
+            </Dane_Wydawnicze>
+            <Media>
+                <Okladka>
+                    <Zdjecie url="img/wladca_pierscieni.jpg" format="jpeg" />
+                </Okladka>
+                <Recenzja h:jezyk="pl">
+                    <Link typ="strona"
+                        url="https://nakanapie.pl/recenzje/wladca-pierscieni-druzyna-pierscienia-j-r-r-tol-wladca-pierscieni-t-1-druzyna-pierscienia" />
+                </Recenzja>
+            </Media>
+        </Ksiazka>
+
+        <Ksiazka id="102" status="przeczytana" ocena="4">
+            <Tytul h:jezyk="en">Murder on the Orient Express</Tytul>
+            <Autor rola="kluczowy">
+                <Imie>Agatha</Imie>
+                <Nazwisko>Christie</Nazwisko>
+                <Narodowosc>brytyjska</Narodowosc>
+            </Autor>
+            <Dane_Wydawnicze>
+                <Rok_Wydania_Polskiego>1963</Rok_Wydania_Polskiego>
+                <Wydawnictwo nazwa_pelna="Wydawnictwo Dolnośląskie">
+                    <Nazwa_Skrocona>WD</Nazwa_Skrocona>
+                    <Siedziba_Glowna>
+                        <Adres_Fizyczny>
+                            <Kraj>Polska</Kraj>
+                            <Miasto>Wrocław</Miasto>
+                        </Adres_Fizyczny>
+                    </Siedziba_Glowna>
+                </Wydawnictwo>
+                <ISBN typ="ISBN-13">978-8324578130</ISBN>
+            </Dane_Wydawnicze>
+            <Media>
+                <Okladka>
+                    <Zdjecie url="img/morderstwo_ekspres.jpg" format="jpeg" />
+                </Okladka>
+                <Recenzja h:jezyk="en">
+                    <Link typ="strona"
+                        url="https://warmdayswillnevercease.wordpress.com/2020/03/19/book-review-murder-on-the-orient-express-by-agatha-christie/" />
+                </Recenzja>
+            </Media>
+        </Ksiazka>
+
+        <Ksiazka id="103" status="w_trakcie" ocena="brak">
+            <Tytul h:jezyk="pl">Sapiens: Od zwierząt do bogów</Tytul>
+            <Ostatnie_Trzy_Oceny>4 5 5</Ostatnie_Trzy_Oceny>
+            <Autor rola="kluczowy">
+                <Imie>Yuval Noah</Imie>
+                <Nazwisko>Harari</Nazwisko>
+                <Narodowosc>izraelska</Narodowosc>
+            </Autor>
+            <Dane_Wydawnicze>
+                <Rok_Wydania_Polskiego>2014</Rok_Wydania_Polskiego>
+                <Wydawnictwo nazwa_pelna="Rebis - Dom Wydawniczy">
+                    <Nazwa_Skrocona>Rebis</Nazwa_Skrocona>
+                    <Siedziba_Glowna>
+                        <Adres_Fizyczny>
+                            <Kraj>Polska</Kraj>
+                            <Miasto>Poznań</Miasto>
+                        </Adres_Fizyczny>
+                    </Siedziba_Glowna>
+                </Wydawnictwo>
+                <ISBN typ="ISBN-13">978-8380624891</ISBN>
+            </Dane_Wydawnicze>
+            <Media>
+                <Okladka>
+                    <Zdjecie url="img/sapiens.jpg" format="jpeg" />
+                </Okladka>
+                <Recenzja h:jezyk="pl">
+                    <Link typ="video" url="https://www.youtube.com/watch?v=xoN9uowJ_pA" />
+                </Recenzja>
+            </Media>
+        </Ksiazka>
+    </Ksiazki>
+</Hobby_Czytelnicze>
