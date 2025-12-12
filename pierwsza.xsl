@@ -22,6 +22,9 @@
                     .status-przeczytana { color: green; font-weight: bold; }
                     .status-w_trakcie { color: orange; font-weight: bold; }
                     .autor-info { font-style: italic; color: #555; }
+                    /* Styl dla nowego szablonu atrybutu */
+                    .rola-atrybut { font-size: 0.8em; text-transform: uppercase; color: #e74c3c;
+        font-weight: bold; margin-left: 5px; }
                     img { max-width: 100px; height: auto; border-radius: 4px; }
                 </style>
             </head>
@@ -111,7 +114,7 @@
         <li>
             <span class="autor-info">
                 <xsl:value-of select="h:Imie" />&#160;<xsl:value-of select="h:Nazwisko" /> (<xsl:value-of
-                    select="h:Narodowosc" />) - Rola: <xsl:value-of select="@rola" />
+                    select="h:Narodowosc" />) <xsl:apply-templates select="@rola" />
             </span>
         </li>
     </xsl:template>
@@ -145,8 +148,7 @@
                 </strong>
             </td>
             <td>
-                <xsl:value-of select="h:Autor/h:Imie" />&#160;<xsl:value-of
-                    select="h:Autor/h:Nazwisko" />
+                <xsl:apply-templates select="h:Autor" />
             </td>
             <td>
                 <xsl:apply-templates select="h:Dane_Wydawnicze" />
@@ -177,6 +179,10 @@
         <br />
         <a
             href="{h:Recenzja/h:Link/@url}" target="_blank">Zobacz recenzję</a>
+    </xsl:template>
+
+    <xsl:template match="@rola">
+        <span class="rola-atrybut"> [<xsl:value-of select="." />] </span>
     </xsl:template>
 
 </xsl:stylesheet>
