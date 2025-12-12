@@ -7,42 +7,13 @@
 
     <xsl:variable name="aktualnyRok" select="2025" />
 
+    <xsl:decimal-format name="pl" grouping-separator=" " />
+
     <xsl:template match="/">
         <html>
             <head>
                 <title>Moje Hobby Czytelnicze</title>
-                <style>
-                    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9;
-                    }
-                    h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-                    h2 { color: #2980b9; margin-top: 30px; }
-                    .card { background: white; padding: 15px; margin-bottom: 10px; border-radius:
-        5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-                    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-                    th { background-color: #3498db; color: white; }
-                    .status-przeczytana { color: green; font-weight: bold; }
-                    .status-w_trakcie { color: orange; font-weight: bold; }
-                    .autor-info { font-style: italic; color: #555; }
-                    .rola-atrybut { font-size: 0.8em; text-transform: uppercase; color: #e74c3c;
-        font-weight: bold; margin-left: 5px; }
-                    img { max-width: 100px; height: auto; border-radius: 4px; }
-                    .footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc;
-        text-align: center; font-size: 0.9em; color: #777; }
-                    .top-pick { color: gold; font-weight: bold; text-shadow: 1px 1px 1px #000;
-        margin-left: 10px; }
-                    .klasyk { background-color: #eee; border: 1px solid #aaa; padding: 1px 4px;
-        font-size: 0.8em; border-radius: 3px; color: #555; }
-                    .indeks-box { background-color: #e8f6f3; padding: 10px; border-left: 5px solid
-        #1abc9c; margin-bottom: 20px; }
-                    .lp-col { font-weight: bold; color: #555; text-align: center; width: 40px; }
-        .xpath-box { border: 1px dashed #f39c12; background-color: #fffde7; padding: 10px;
-        margin-top: 15px; font-size: 0.9em; }
-                    .xpath-box li { margin-bottom: 5px; }
-                    .monogram { display: inline-block; width: 25px; height: 25px; background-color:
-        #34495e; color: #fff; text-align: center; line-height: 25px; border-radius: 50%; font-size:
-        0.7em; margin-right: 5px; }
-                </style>
+                <link rel="stylesheet" type="text/css" href="style.css" />
             </head>
             <body>
                 <xsl:apply-templates select="h:Hobby_Czytelnicze" />
@@ -117,10 +88,15 @@
             <li>Przeczytano: <strong>
                     <xsl:value-of select="h:Liczba_Przeczytanych" />
                 </strong> sztuk</li>
-            <li>Strony: <xsl:value-of select="h:Liczba_Stron" /></li>
+
+            <li> Strony: <xsl:value-of select="format-number(h:Liczba_Stron, '# ###', 'pl')" />
+            </li>
+
             <li>Czas: <xsl:value-of select="h:Laczny_Czas_Czytania" /> godzin</li>
+
             <li> Średnio stron na książkę: <strong>
-                    <xsl:value-of select="round(h:Liczba_Stron div h:Liczba_Przeczytanych)" />
+                    <xsl:value-of
+                        select="format-number(h:Liczba_Stron div h:Liczba_Przeczytanych, '0.00')" />
                 </strong>
             </li>
         </ul>
@@ -254,7 +230,6 @@
                     <xsl:value-of select="@status" />
                 </span>
                 <br />
-
                 <xsl:copy-of select="$sformatowana_ocena" />
             </td>
         </tr>
@@ -271,11 +246,9 @@
             </xsl:if>
         </small>
         <br />
-        
         <small>
         Rok: <xsl:value-of select="h:Rok_Wydania_Polskiego" /> (wiek: <xsl:value-of
                 select="$aktualnyRok - h:Rok_Wydania_Polskiego" /> lat) </small>
-        
         <xsl:if
             test="h:Rok_Wydania_Polskiego &lt; 2000">
             <span class="klasyk">KLASYK</span>
