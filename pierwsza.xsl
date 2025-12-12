@@ -28,11 +28,13 @@
                     .footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc;
         text-align: center; font-size: 0.9em; color: #777; }
 
-                    /* Nowe style dla warunków */
                     .top-pick { color: gold; font-weight: bold; text-shadow: 1px 1px 1px #000;
         margin-left: 10px; }
                     .klasyk { background-color: #eee; border: 1px solid #aaa; padding: 1px 4px;
         font-size: 0.8em; border-radius: 3px; color: #555; }
+
+                    .indeks-box { background-color: #e8f6f3; padding: 10px; border-left: 5px solid
+        #1abc9c; margin-bottom: 20px; }
                 </style>
             </head>
             <body>
@@ -107,13 +109,11 @@
         <div class="card">
             <h3>
                 <xsl:value-of select="@priorytet" />. <xsl:value-of select="h:Nazwa" />
-                
                 <xsl:if
                     test="@priorytet = 1">
                     <span class="top-pick">★ ULUBIONY ★</span>
                 </xsl:if>
             </h3>
-
             <p>
                 <xsl:value-of select="h:Opis" />
             </p>
@@ -137,6 +137,18 @@
 
     <xsl:template match="h:Ksiazki">
         <h2>Biblioteczka</h2>
+        
+        <div class="indeks-box">
+            <h3>Szybki indeks tytułów (A-Z)</h3>
+            <ul>
+                <xsl:for-each select="h:Ksiazka">
+                    <xsl:sort select="h:Tytul" />
+                    
+                    <li>
+                        <xsl:value-of select="h:Tytul" /> (ID: <xsl:value-of select="@id" />) </li>
+                </xsl:for-each>
+            </ul>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -176,7 +188,6 @@
                     <xsl:value-of select="@status" />
                 </span>
                 <br />
-
                 <xsl:choose>
                     <xsl:when test="@ocena = '5'">
                         <strong>⭐⭐⭐⭐⭐ (Wybitna)</strong>
@@ -187,7 +198,6 @@
                     </xsl:when>
                     <xsl:otherwise> Ocena: <xsl:value-of select="@ocena" />/5 </xsl:otherwise>
                 </xsl:choose>
-
             </td>
         </tr>
     </xsl:template>
@@ -197,12 +207,10 @@
         <br />
         <small>Rok: <xsl:value-of
                 select="h:Rok_Wydania_Polskiego" /></small>
-        
         <xsl:if
             test="h:Rok_Wydania_Polskiego &lt; 2000">
             <span class="klasyk">KLASYK</span>
         </xsl:if>
-        
         <br />
         <small>ISBN: <xsl:value-of
                 select="h:ISBN" /></small>
