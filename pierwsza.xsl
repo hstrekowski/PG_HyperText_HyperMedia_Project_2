@@ -50,7 +50,7 @@
             <xsl:apply-templates select="h:Statystyki" />
 
             <div class="xpath-box">
-                <h4>📊 Analiza danych (XPath &amp; Funkcje):</h4>
+                <h4>📊 Analiza danych:</h4>
                 <ul>
                     <li>
                         <strong>Autor pierwszej książki:</strong>
@@ -88,12 +88,9 @@
             <li>Przeczytano: <strong>
                     <xsl:value-of select="h:Liczba_Przeczytanych" />
                 </strong> sztuk</li>
-
             <li> Strony: <xsl:value-of select="format-number(h:Liczba_Stron, '# ###', 'pl')" />
             </li>
-
             <li>Czas: <xsl:value-of select="h:Laczny_Czas_Czytania" /> godzin</li>
-
             <li> Średnio stron na książkę: <strong>
                     <xsl:value-of
                         select="format-number(h:Liczba_Stron div h:Liczba_Przeczytanych, '0.00')" />
@@ -261,8 +258,10 @@
     <xsl:template match="h:Media">
         <img src="{h:Okladka/h:Zdjecie/@url}" alt="Okładka" />
         <br />
+        
         <a
-            href="{h:Recenzja/h:Link/@url}" target="_blank">Zobacz recenzję</a>
+            href="{h:Recenzja/h:Link/@url}" target="_blank"> Zobacz recenzję (<xsl:value-of
+                select="h:Recenzja/h:Link/@typ" />) </a>
     </xsl:template>
 
     <xsl:template match="@rola">
