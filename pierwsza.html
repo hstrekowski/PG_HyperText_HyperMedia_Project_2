@@ -51,7 +51,6 @@
         font-style: italic;
         color: #555;
       }
-      /* Styl dla nowego szablonu atrybutu */
       .rola-atrybut {
         font-size: 0.8em;
         text-transform: uppercase;
@@ -63,6 +62,30 @@
         max-width: 100px;
         height: auto;
         border-radius: 4px;
+      }
+      .footer {
+        margin-top: 40px;
+        padding-top: 10px;
+        border-top: 1px solid #ccc;
+        text-align: center;
+        font-size: 0.9em;
+        color: #777;
+      }
+
+      /* Nowe style dla warunków */
+      .top-pick {
+        color: gold;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px #000;
+        margin-left: 10px;
+      }
+      .klasyk {
+        background-color: #eee;
+        border: 1px solid #aaa;
+        padding: 1px 4px;
+        font-size: 0.8em;
+        border-radius: 3px;
+        color: #555;
       }
     </style>
   </head>
@@ -118,7 +141,7 @@
 
       <h2>Ulubione Gatunki</h2>
       <div class="card">
-        <h3>1. Fantastyka</h3>
+        <h3>1. Fantastyka<span class="top-pick">★ ULUBIONY ★</span></h3>
         <p>Światy magii, podróże w czasie i alternatywne rzeczywistości.</p>
         <p><strong>Autorzy:</strong></p>
         <ul>
@@ -189,13 +212,15 @@
               </li>
             </td>
             <td>
-              Zysk i S-ka Wydawnictwo<br /><small>Rok: 1961</small><br /><small
+              Zysk i S-ka Wydawnictwo<br /><small>Rok: 1961</small
+              ><span class="klasyk">KLASYK</span><br /><small
                 >ISBN: 978-8377852360</small
               >
             </td>
             <td>
-              <span class="status-przeczytana">przeczytana</span><br />
-              Ocena: 5
+              <span class="status-przeczytana">przeczytana</span><br /><strong
+                >⭐⭐⭐⭐⭐ (Wybitna)</strong
+              >
             </td>
           </tr>
           <tr>
@@ -216,13 +241,14 @@
               </li>
             </td>
             <td>
-              Wydawnictwo Dolnośląskie<br /><small>Rok: 1963</small><br /><small
+              Wydawnictwo Dolnośląskie<br /><small>Rok: 1963</small
+              ><span class="klasyk">KLASYK</span><br /><small
                 >ISBN: 978-8324578130</small
               >
             </td>
             <td>
               <span class="status-przeczytana">przeczytana</span><br />
-              Ocena: 4
+              ⭐⭐⭐⭐ (Dobra)
             </td>
           </tr>
           <tr>
@@ -248,12 +274,19 @@
               >
             </td>
             <td>
-              <span class="status-w_trakcie">w_trakcie</span><br />
-              Ocena: brak
+              <span class="status-w_trakcie">w_trakcie</span><br /><em
+                style="color: #aaa"
+                >Jeszcze nie oceniono</em
+              >
             </td>
           </tr>
         </tbody>
       </table>
+
+      <div class="footer">
+        <p>Dziękuję za przeglądanie mojego raportu czytelniczego!</p>
+        <p>Prawa autorskie © 2025 Hubert Strękowski</p>
+      </div>
     </div>
   </body>
 </html>

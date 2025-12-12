@@ -22,10 +22,17 @@
                     .status-przeczytana { color: green; font-weight: bold; }
                     .status-w_trakcie { color: orange; font-weight: bold; }
                     .autor-info { font-style: italic; color: #555; }
-                    /* Styl dla nowego szablonu atrybutu */
                     .rola-atrybut { font-size: 0.8em; text-transform: uppercase; color: #e74c3c;
         font-weight: bold; margin-left: 5px; }
                     img { max-width: 100px; height: auto; border-radius: 4px; }
+                    .footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc;
+        text-align: center; font-size: 0.9em; color: #777; }
+
+                    /* Nowe style dla warunków */
+                    .top-pick { color: gold; font-weight: bold; text-shadow: 1px 1px 1px #000;
+        margin-left: 10px; }
+                    .klasyk { background-color: #eee; border: 1px solid #aaa; padding: 1px 4px;
+        font-size: 0.8em; border-radius: 3px; color: #555; }
                 </style>
             </head>
             <body>
@@ -41,6 +48,7 @@
                 <xsl:value-of select="@imie_autora" />&#160;<xsl:value-of
                     select="@nazwisko_autora" /> (Indeks: <xsl:value-of select="@indeks_autora" />) </p>
             <xsl:apply-templates />
+            <xsl:call-template name="StopkaStrony" />
         </div>
     </xsl:template>
 
@@ -97,7 +105,15 @@
 
     <xsl:template match="h:Gatunek">
         <div class="card">
-            <h3><xsl:value-of select="@priorytet" />. <xsl:value-of select="h:Nazwa" /></h3>
+            <h3>
+                <xsl:value-of select="@priorytet" />. <xsl:value-of select="h:Nazwa" />
+                
+                <xsl:if
+                    test="@priorytet = 1">
+                    <span class="top-pick">★ ULUBIONY ★</span>
+                </xsl:if>
+            </h3>
+
             <p>
                 <xsl:value-of select="h:Opis" />
             </p>
@@ -159,8 +175,19 @@
                     </xsl:attribute>
                     <xsl:value-of select="@status" />
                 </span>
-                <br /> Ocena: <xsl:value-of
-                    select="@ocena" />
+                <br />
+
+                <xsl:choose>
+                    <xsl:when test="@ocena = '5'">
+                        <strong>⭐⭐⭐⭐⭐ (Wybitna)</strong>
+                    </xsl:when>
+                    <xsl:when test="@ocena = '4'"> ⭐⭐⭐⭐ (Dobra) </xsl:when>
+                    <xsl:when test="@ocena = 'brak'">
+                        <em style="color:#aaa;">Jeszcze nie oceniono</em>
+                    </xsl:when>
+                    <xsl:otherwise> Ocena: <xsl:value-of select="@ocena" />/5 </xsl:otherwise>
+                </xsl:choose>
+
             </td>
         </tr>
     </xsl:template>
@@ -169,7 +196,14 @@
         <xsl:value-of select="h:Wydawnictwo/@nazwa_pelna" />
         <br />
         <small>Rok: <xsl:value-of
-                select="h:Rok_Wydania_Polskiego" /></small><br />
+                select="h:Rok_Wydania_Polskiego" /></small>
+        
+        <xsl:if
+            test="h:Rok_Wydania_Polskiego &lt; 2000">
+            <span class="klasyk">KLASYK</span>
+        </xsl:if>
+        
+        <br />
         <small>ISBN: <xsl:value-of
                 select="h:ISBN" /></small>
     </xsl:template>
@@ -183,6 +217,13 @@
 
     <xsl:template match="@rola">
         <span class="rola-atrybut"> [<xsl:value-of select="." />] </span>
+    </xsl:template>
+
+    <xsl:template name="StopkaStrony">
+        <div class="footer">
+            <p>Dziękuję za przeglądanie mojego raportu czytelniczego!</p>
+            <p>Prawa autorskie &#169; 2025 Hubert Strękowski</p>
+        </div>
     </xsl:template>
 
 </xsl:stylesheet>
