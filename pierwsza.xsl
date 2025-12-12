@@ -27,14 +27,16 @@
                     img { max-width: 100px; height: auto; border-radius: 4px; }
                     .footer { margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc;
         text-align: center; font-size: 0.9em; color: #777; }
-
                     .top-pick { color: gold; font-weight: bold; text-shadow: 1px 1px 1px #000;
         margin-left: 10px; }
                     .klasyk { background-color: #eee; border: 1px solid #aaa; padding: 1px 4px;
         font-size: 0.8em; border-radius: 3px; color: #555; }
-
                     .indeks-box { background-color: #e8f6f3; padding: 10px; border-left: 5px solid
         #1abc9c; margin-bottom: 20px; }
+                    .lp-col { font-weight: bold; color: #555; text-align: center; width: 40px; }
+        .xpath-box { border: 1px dashed #f39c12; background-color: #fffde7; padding:
+                    10px; margin-top: 15px; font-size: 0.9em; }
+                    .xpath-box li { margin-bottom: 5px; }
                 </style>
             </head>
             <body>
@@ -70,6 +72,35 @@
                 </xsl:for-each>
             </ul>
             <xsl:apply-templates select="h:Statystyki" />
+
+            <div class="xpath-box">
+                <h4>📊 Analiza danych:</h4>
+                <ul>
+                    <li>
+                        <strong>Autor pierwszej książki:</strong>
+                        <xsl:value-of
+                            select="/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[1]/h:Autor/h:Nazwisko" />
+                    </li>
+
+                    <li>
+                        <strong>Tytuł książki o ID 103:</strong>
+                        <xsl:value-of
+                            select="/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[@id='103']/h:Tytul" />
+                    </li>
+
+                    <li>
+                        <strong>Ile książek przeczytano:</strong>
+                        <xsl:value-of
+                            select="count(/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[@status='przeczytana'])" />
+                    </li>
+
+                    <li>
+                        <strong>Ostatnia pozycja na liście:</strong>
+                        <xsl:value-of
+                            select="/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[last()]/h:Tytul" />
+                    </li>
+                </ul>
+            </div>
         </div>
     </xsl:template>
 
@@ -143,15 +174,18 @@
             <ul>
                 <xsl:for-each select="h:Ksiazka">
                     <xsl:sort select="h:Tytul" />
-                    
                     <li>
-                        <xsl:value-of select="h:Tytul" /> (ID: <xsl:value-of select="@id" />) </li>
+                        <xsl:number value="position()" format="1. " />
+                        <xsl:value-of select="h:Tytul" />
+        (ID: <xsl:value-of select="@id" />) </li>
                 </xsl:for-each>
             </ul>
         </div>
+
         <table>
             <thead>
                 <tr>
+                    <th>Lp.</th>
                     <th>Okładka</th>
                     <th>Tytuł</th>
                     <th>Autor</th>
@@ -167,6 +201,9 @@
 
     <xsl:template match="h:Ksiazka">
         <tr>
+            <td class="lp-col">
+                <xsl:number count="h:Ksiazka" level="single" format="I." />
+            </td>
             <td>
                 <xsl:apply-templates select="h:Media" />
             </td>

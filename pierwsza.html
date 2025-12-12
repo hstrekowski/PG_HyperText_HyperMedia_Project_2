@@ -71,7 +71,6 @@
         font-size: 0.9em;
         color: #777;
       }
-
       .top-pick {
         color: gold;
         font-weight: bold;
@@ -86,12 +85,27 @@
         border-radius: 3px;
         color: #555;
       }
-
       .indeks-box {
         background-color: #e8f6f3;
         padding: 10px;
         border-left: 5px solid #1abc9c;
         margin-bottom: 20px;
+      }
+      .lp-col {
+        font-weight: bold;
+        color: #555;
+        text-align: center;
+        width: 40px;
+      }
+      .xpath-box {
+        border: 1px dashed #f39c12;
+        background-color: #fffde7;
+        padding: 10px;
+        margin-top: 15px;
+        font-size: 0.9em;
+      }
+      .xpath-box li {
+        margin-bottom: 5px;
       }
     </style>
   </head>
@@ -143,6 +157,22 @@
             >35%</span
           >
         </div>
+
+        <div class="xpath-box">
+          <h4>📊 Analiza danych:</h4>
+          <ul>
+            <li><strong>Autor pierwszej książki:</strong>Tolkien</li>
+            <li>
+              <strong>Tytuł książki o ID 103:</strong>Sapiens: Od zwierząt do
+              bogów
+            </li>
+            <li><strong>Ile książek przeczytano:</strong>2</li>
+            <li>
+              <strong>Ostatnia pozycja na liście:</strong>Sapiens: Od zwierząt
+              do bogów
+            </li>
+          </ul>
+        </div>
       </div>
 
       <h2>Ulubione Gatunki</h2>
@@ -192,14 +222,15 @@
       <div class="indeks-box">
         <h3>Szybki indeks tytułów (A-Z)</h3>
         <ul>
-          <li>Murder on the Orient Express (ID: 102)</li>
-          <li>Sapiens: Od zwierząt do bogów (ID: 103)</li>
-          <li>Władca Pierścieni: Drużyna Pierścienia (ID: 101)</li>
+          <li>1. Murder on the Orient Express (ID: 102)</li>
+          <li>2. Sapiens: Od zwierząt do bogów (ID: 103)</li>
+          <li>3. Władca Pierścieni: Drużyna Pierścienia (ID: 101)</li>
         </ul>
       </div>
       <table>
         <thead>
           <tr>
+            <th>Lp.</th>
             <th>Okładka</th>
             <th>Tytuł</th>
             <th>Autor</th>
@@ -209,6 +240,7 @@
         </thead>
         <tbody>
           <tr>
+            <td class="lp-col">I.</td>
             <td>
               <img src="img/wladca_pierscieni.jpg" alt="Okładka" /><br /><a
                 href="https://nakanapie.pl/recenzje/wladca-pierscieni-druzyna-pierscienia-j-r-r-tol-wladca-pierscieni-t-1-druzyna-pierscienia"
@@ -238,6 +270,7 @@
             </td>
           </tr>
           <tr>
+            <td class="lp-col">II.</td>
             <td>
               <img src="img/morderstwo_ekspres.jpg" alt="Okładka" /><br /><a
                 href="https://warmdayswillnevercease.wordpress.com/2020/03/19/book-review-murder-on-the-orient-express-by-agatha-christie/"
@@ -266,6 +299,7 @@
             </td>
           </tr>
           <tr>
+            <td class="lp-col">III.</td>
             <td>
               <img src="img/sapiens.jpg" alt="Okładka" /><br /><a
                 href="https://www.youtube.com/watch?v=xoN9uowJ_pA"
