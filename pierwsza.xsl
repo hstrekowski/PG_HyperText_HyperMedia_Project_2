@@ -5,6 +5,8 @@
 
     <xsl:output method="html" encoding="UTF-8" indent="yes" />
 
+    <xsl:variable name="aktualnyRok" select="2025" />
+
     <xsl:template match="/">
         <html>
             <head>
@@ -34,9 +36,12 @@
                     .indeks-box { background-color: #e8f6f3; padding: 10px; border-left: 5px solid
         #1abc9c; margin-bottom: 20px; }
                     .lp-col { font-weight: bold; color: #555; text-align: center; width: 40px; }
-        .xpath-box { border: 1px dashed #f39c12; background-color: #fffde7; padding:
-                    10px; margin-top: 15px; font-size: 0.9em; }
+        .xpath-box { border: 1px dashed #f39c12; background-color: #fffde7; padding: 10px;
+        margin-top: 15px; font-size: 0.9em; }
                     .xpath-box li { margin-bottom: 5px; }
+                    .monogram { display: inline-block; width: 25px; height: 25px; background-color:
+        #34495e; color: #fff; text-align: center; line-height: 25px; border-radius: 50%; font-size:
+        0.7em; margin-right: 5px; }
                 </style>
             </head>
             <body>
@@ -74,31 +79,33 @@
             <xsl:apply-templates select="h:Statystyki" />
 
             <div class="xpath-box">
-                <h4>📊 Analiza danych:</h4>
+                <h4>📊 Analiza danych (XPath &amp; Funkcje):</h4>
                 <ul>
                     <li>
                         <strong>Autor pierwszej książki:</strong>
                         <xsl:value-of
                             select="/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[1]/h:Autor/h:Nazwisko" />
                     </li>
-
                     <li>
                         <strong>Tytuł książki o ID 103:</strong>
                         <xsl:value-of
                             select="/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[@id='103']/h:Tytul" />
                     </li>
-
                     <li>
                         <strong>Ile książek przeczytano:</strong>
                         <xsl:value-of
                             select="count(/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[@status='przeczytana'])" />
                     </li>
-
                     <li>
                         <strong>Ostatnia pozycja na liście:</strong>
                         <xsl:value-of
                             select="/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[last()]/h:Tytul" />
                     </li>
+                    <li>
+                        <strong>Długość tytułu pierwszej książki:</strong>
+                        <xsl:value-of
+                            select="string-length(/h:Hobby_Czytelnicze/h:Ksiazki/h:Ksiazka[1]/h:Tytul)" />
+        znaków </li>
                 </ul>
             </div>
         </div>
@@ -112,6 +119,10 @@
                 </strong> sztuk</li>
             <li>Strony: <xsl:value-of select="h:Liczba_Stron" /></li>
             <li>Czas: <xsl:value-of select="h:Laczny_Czas_Czytania" /> godzin</li>
+            <li> Średnio stron na książkę: <strong>
+                    <xsl:value-of select="round(h:Liczba_Stron div h:Liczba_Przeczytanych)" />
+                </strong>
+            </li>
         </ul>
     </xsl:template>
 
@@ -159,6 +170,10 @@
 
     <xsl:template match="h:Autor">
         <li>
+            <span class="monogram">
+                <xsl:value-of select="substring(h:Imie, 1, 1)" />
+                <xsl:value-of select="substring(h:Nazwisko, 1, 1)" />
+            </span>
             <span class="autor-info">
                 <xsl:value-of select="h:Imie" />&#160;<xsl:value-of select="h:Nazwisko" /> (<xsl:value-of
                     select="h:Narodowosc" />) <xsl:apply-templates select="@rola" />
@@ -168,7 +183,6 @@
 
     <xsl:template match="h:Ksiazki">
         <h2>Biblioteczka</h2>
-        
         <div class="indeks-box">
             <h3>Szybki indeks tytułów (A-Z)</h3>
             <ul>
@@ -200,6 +214,21 @@
     </xsl:template>
 
     <xsl:template match="h:Ksiazka">
+        <xsl:variable name="sformatowana_ocena">
+            <xsl:choose>
+                <xsl:when test="@ocena = '5'">
+                    <strong style="color: #e67e22;">⭐⭐⭐⭐⭐ (Wybitna)</strong>
+                </xsl:when>
+                <xsl:when test="@ocena = '4'">
+                    <span style="color: #f1c40f;">⭐⭐⭐⭐ (Dobra)</span>
+                </xsl:when>
+                <xsl:when test="@ocena = 'brak'">
+                    <em style="color:#aaa;">Jeszcze nie oceniono</em>
+                </xsl:when>
+                <xsl:otherwise> Ocena: <xsl:value-of select="@ocena" />/5 </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
         <tr>
             <td class="lp-col">
                 <xsl:number count="h:Ksiazka" level="single" format="I." />
@@ -225,16 +254,8 @@
                     <xsl:value-of select="@status" />
                 </span>
                 <br />
-                <xsl:choose>
-                    <xsl:when test="@ocena = '5'">
-                        <strong>⭐⭐⭐⭐⭐ (Wybitna)</strong>
-                    </xsl:when>
-                    <xsl:when test="@ocena = '4'"> ⭐⭐⭐⭐ (Dobra) </xsl:when>
-                    <xsl:when test="@ocena = 'brak'">
-                        <em style="color:#aaa;">Jeszcze nie oceniono</em>
-                    </xsl:when>
-                    <xsl:otherwise> Ocena: <xsl:value-of select="@ocena" />/5 </xsl:otherwise>
-                </xsl:choose>
+
+                <xsl:copy-of select="$sformatowana_ocena" />
             </td>
         </tr>
     </xsl:template>
@@ -242,8 +263,19 @@
     <xsl:template match="h:Dane_Wydawnicze">
         <xsl:value-of select="h:Wydawnictwo/@nazwa_pelna" />
         <br />
-        <small>Rok: <xsl:value-of
-                select="h:Rok_Wydania_Polskiego" /></small>
+        <small>Miasto: <xsl:value-of
+                select="h:Wydawnictwo/h:Siedziba_Glowna/h:Adres_Fizyczny/h:Miasto" />
+            <xsl:if
+                test="contains(h:Wydawnictwo/h:Siedziba_Glowna/h:Adres_Fizyczny/h:Miasto, 'Poznań')">
+                <span style="color:green; font-weight:bold;"> (Lokalne!)</span>
+            </xsl:if>
+        </small>
+        <br />
+        
+        <small>
+        Rok: <xsl:value-of select="h:Rok_Wydania_Polskiego" /> (wiek: <xsl:value-of
+                select="$aktualnyRok - h:Rok_Wydania_Polskiego" /> lat) </small>
+        
         <xsl:if
             test="h:Rok_Wydania_Polskiego &lt; 2000">
             <span class="klasyk">KLASYK</span>
@@ -267,7 +299,10 @@
     <xsl:template name="StopkaStrony">
         <div class="footer">
             <p>Dziękuję za przeglądanie mojego raportu czytelniczego!</p>
-            <p>Prawa autorskie &#169; 2025 Hubert Strękowski</p>
+            <p>
+                <xsl:value-of
+                    select="concat('Prawa autorskie &#169; ', '2025 ', 'Hubert Strękowski')" />
+            </p>
         </div>
     </xsl:template>
 

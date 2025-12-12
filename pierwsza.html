@@ -107,6 +107,18 @@
       .xpath-box li {
         margin-bottom: 5px;
       }
+      .monogram {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-color: #34495e;
+        color: #fff;
+        text-align: center;
+        line-height: 25px;
+        border-radius: 50%;
+        font-size: 0.7em;
+        margin-right: 5px;
+      }
     </style>
   </head>
   <body>
@@ -130,6 +142,7 @@
           <li>Przeczytano: <strong>35</strong> sztuk</li>
           <li>Strony: 12540</li>
           <li>Czas: 285 godzin</li>
+          <li>Średnio stron na książkę: <strong>358</strong></li>
         </ul>
 
         <h3>Formaty:</h3>
@@ -159,7 +172,7 @@
         </div>
 
         <div class="xpath-box">
-          <h4>📊 Analiza danych:</h4>
+          <h4>📊 Analiza danych (XPath &amp; Funkcje):</h4>
           <ul>
             <li><strong>Autor pierwszej książki:</strong>Tolkien</li>
             <li>
@@ -171,6 +184,7 @@
               <strong>Ostatnia pozycja na liście:</strong>Sapiens: Od zwierząt
               do bogów
             </li>
+            <li><strong>Długość tytułu pierwszej książki:</strong>38 znaków</li>
           </ul>
         </div>
       </div>
@@ -182,13 +196,15 @@
         <p><strong>Autorzy:</strong></p>
         <ul>
           <li>
-            <span class="autor-info"
+            <span class="monogram">TP</span
+            ><span class="autor-info"
               >Terry&nbsp;Pratchett (brytyjska)
               <span class="rola-atrybut"> [kluczowy] </span></span
             >
           </li>
           <li>
-            <span class="autor-info"
+            <span class="monogram">UL</span
+            ><span class="autor-info"
               >Ursula K.&nbsp;Le Guin (amerykańska)
               <span class="rola-atrybut"> [wazny] </span></span
             >
@@ -204,13 +220,15 @@
         <p><strong>Autorzy:</strong></p>
         <ul>
           <li>
-            <span class="autor-info"
+            <span class="monogram">AC</span
+            ><span class="autor-info"
               >Agatha&nbsp;Christie (brytyjska)
               <span class="rola-atrybut"> [kluczowy] </span></span
             >
           </li>
           <li>
-            <span class="autor-info"
+            <span class="monogram">RC</span
+            ><span class="autor-info"
               >Raymond&nbsp;Chandler (amerykańska)
               <span class="rola-atrybut"> [poboczny] </span></span
             >
@@ -251,20 +269,26 @@
             <td><strong>Władca Pierścieni: Drużyna Pierścienia</strong></td>
             <td>
               <li>
-                <span class="autor-info"
+                <span class="monogram">JT</span
+                ><span class="autor-info"
                   >J.R.R.&nbsp;Tolkien (brytyjska)
                   <span class="rola-atrybut"> [kluczowy] </span></span
                 >
               </li>
             </td>
             <td>
-              Zysk i S-ka Wydawnictwo<br /><small>Rok: 1961</small
+              Zysk i S-ka Wydawnictwo<br /><small
+                >Miasto: Poznań<span style="color: green; font-weight: bold">
+                  (Lokalne!)</span
+                ></small
+              ><br /><small> Rok: 1961 (wiek: 64 lat) </small
               ><span class="klasyk">KLASYK</span><br /><small
                 >ISBN: 978-8377852360</small
               >
             </td>
             <td>
               <span class="status-przeczytana">przeczytana</span><br /><strong
+                style="color: #e67e22"
                 >⭐⭐⭐⭐⭐ (Wybitna)</strong
               >
             </td>
@@ -281,21 +305,25 @@
             <td><strong>Murder on the Orient Express</strong></td>
             <td>
               <li>
-                <span class="autor-info"
+                <span class="monogram">AC</span
+                ><span class="autor-info"
                   >Agatha&nbsp;Christie (brytyjska)
                   <span class="rola-atrybut"> [kluczowy] </span></span
                 >
               </li>
             </td>
             <td>
-              Wydawnictwo Dolnośląskie<br /><small>Rok: 1963</small
+              Wydawnictwo Dolnośląskie<br /><small>Miasto: Wrocław</small
+              ><br /><small> Rok: 1963 (wiek: 62 lat) </small
               ><span class="klasyk">KLASYK</span><br /><small
                 >ISBN: 978-8324578130</small
               >
             </td>
             <td>
-              <span class="status-przeczytana">przeczytana</span><br />
-              ⭐⭐⭐⭐ (Dobra)
+              <span class="status-przeczytana">przeczytana</span><br /><span
+                style="color: #f1c40f"
+                >⭐⭐⭐⭐ (Dobra)</span
+              >
             </td>
           </tr>
           <tr>
@@ -310,14 +338,19 @@
             <td><strong>Sapiens: Od zwierząt do bogów</strong></td>
             <td>
               <li>
-                <span class="autor-info"
+                <span class="monogram">YH</span
+                ><span class="autor-info"
                   >Yuval Noah&nbsp;Harari (izraelska)
                   <span class="rola-atrybut"> [kluczowy] </span></span
                 >
               </li>
             </td>
             <td>
-              Rebis - Dom Wydawniczy<br /><small>Rok: 2014</small><br /><small
+              Rebis - Dom Wydawniczy<br /><small
+                >Miasto: Poznań<span style="color: green; font-weight: bold">
+                  (Lokalne!)</span
+                ></small
+              ><br /><small> Rok: 2014 (wiek: 11 lat) </small><br /><small
                 >ISBN: 978-8380624891</small
               >
             </td>
