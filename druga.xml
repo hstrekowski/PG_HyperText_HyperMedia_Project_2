@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Raport_Kulturalny xmlns:h="http://example.org/hobby">
+    <Info_Student>
+        <Imie>Hubert</Imie>
+        <Nazwisko>Strękowski</Nazwisko>
+        <Numer_Indeksu>208381</Numer_Indeksu>
+    </Info_Student>
+    <Inwentarz_Ksiazek>
+        <Pozycja nr_katalogowy="101">
+            <Dane_Podstawowe>
+                <Tytul_Glowny>Władca Pierścieni: Drużyna Pierścienia</Tytul_Glowny>
+                <Autor_Dziela>J.R.R. Tolkien</Autor_Dziela>
+            </Dane_Podstawowe>
+            <Status_Czytelnictwa>
+                <Aktualny_Stan>przeczytana</Aktualny_Stan>
+                <Ocena_Uzytkownika>5</Ocena_Uzytkownika>
+            </Status_Czytelnictwa>
+        </Pozycja>
+        <Pozycja nr_katalogowy="102">
+            <Dane_Podstawowe>
+                <Tytul_Glowny>Murder on the Orient Express</Tytul_Glowny>
+                <Autor_Dziela>Agatha Christie</Autor_Dziela>
+            </Dane_Podstawowe>
+            <Status_Czytelnictwa>
+                <Aktualny_Stan>przeczytana</Aktualny_Stan>
+                <Ocena_Uzytkownika>4</Ocena_Uzytkownika>
+            </Status_Czytelnictwa>
+        </Pozycja>
+        <Pozycja nr_katalogowy="103">
+            <Dane_Podstawowe>
+                <Tytul_Glowny>Sapiens: Od zwierząt do bogów</Tytul_Glowny>
+                <Autor_Dziela>Yuval Noah Harari</Autor_Dziela>
+            </Dane_Podstawowe>
+            <Status_Czytelnictwa>
+                <Aktualny_Stan>w_trakcie</Aktualny_Stan>
+                <Ocena_Uzytkownika>brak</Ocena_Uzytkownika>
+            </Status_Czytelnictwa>
+        </Pozycja>
+    </Inwentarz_Ksiazek>
+</Raport_Kulturalny>
