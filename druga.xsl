@@ -10,12 +10,11 @@
         <Raport_Biblioteczny data_raportu="2025-06-20">
 
             <Metryka_Studenta>
-                <Imie>
-                    <xsl:value-of select="h:Hobby_Czytelnicze/@imie_autora" />
-                </Imie>
-                <Nazwisko>
+
+                <xsl:element name="{h:Hobby_Czytelnicze/@imie_autora}">
                     <xsl:value-of select="h:Hobby_Czytelnicze/@nazwisko_autora" />
-                </Nazwisko>
+                </xsl:element>
+
                 <Indeks>
                     <xsl:value-of select="h:Hobby_Czytelnicze/@indeks_autora" />
                 </Indeks>

@@ -1,60 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:h="http://example.org/hobby">
-
-    <xsl:output method="xml" indent="yes" encoding="UTF-8" />
-
-    <xsl:template match="/">
-
-        <Raport_Biblioteczny>
-
-            <Metryka_Studenta>
-                <Imie>
-                    <xsl:value-of select="h:Hobby_Czytelnicze/@imie_autora" />
-                </Imie>
-                <Nazwisko>
-                    <xsl:value-of select="h:Hobby_Czytelnicze/@nazwisko_autora" />
-                </Nazwisko>
-                <Indeks>
-                    <xsl:value-of select="h:Hobby_Czytelnicze/@indeks_autora" />
-                </Indeks>
-            </Metryka_Studenta>
-
-            <Katalog_Zbiorow>
-                <xsl:apply-templates select="//h:Ksiazka" />
-            </Katalog_Zbiorow>
-
-        </Raport_Biblioteczny>
-    </xsl:template>
-
-    <xsl:template match="h:Ksiazka">
-
-        <Wolumin>
-            <Identyfikator>
-                <xsl:value-of select="@id" />
-            </Identyfikator>
-
+<Raport_Biblioteczny xmlns:h="http://example.org/hobby" data_raportu="2025-06-20">
+    <Metryka_Studenta>
+        <Hubert>Strękowski</Hubert>
+        <Indeks>208381</Indeks>
+    </Metryka_Studenta>
+    <Katalog_Zbiorow>
+        <Wolumin nr_inwentarzowy="101">
             <Detale_Publikacji>
-                <Tytul_Dziela>
-                    <xsl:value-of select="h:Tytul" />
-                </Tytul_Dziela>
-
-                <Autor_Calosc>
-                    <xsl:value-of select="h:Autor/h:Imie" />
-                    <xsl:text> </xsl:text>
-                    <xsl:value-of select="h:Autor/h:Nazwisko" />
-                </Autor_Calosc>
+                <Tytul_Dziela wersja_jezykowa="pl">Władca Pierścieni: Drużyna Pierścienia</Tytul_Dziela>
+                <Autor_Calosc>J.R.R. Tolkien</Autor_Calosc>
             </Detale_Publikacji>
-
-            <Status>
-                <xsl:value-of select="@status" />
-            </Status>
-            <Ocena>
-                <xsl:value-of select="@ocena" />
-            </Ocena>
-
+            <Status>przeczytana</Status>
+            <Ocena>5</Ocena>
         </Wolumin>
-    </xsl:template>
-
-</xsl:stylesheet>
+        <Wolumin nr_inwentarzowy="102">
+            <Detale_Publikacji>
+                <Tytul_Dziela wersja_jezykowa="en">Murder on the Orient Express</Tytul_Dziela>
+                <Autor_Calosc>Agatha Christie</Autor_Calosc>
+            </Detale_Publikacji>
+            <Status>przeczytana</Status>
+            <Ocena>4</Ocena>
+        </Wolumin>
+        <Wolumin nr_inwentarzowy="103">
+            <Detale_Publikacji>
+                <Tytul_Dziela wersja_jezykowa="pl">Sapiens: Od zwierząt do bogów</Tytul_Dziela>
+                <Autor_Calosc>Yuval Noah Harari</Autor_Calosc>
+            </Detale_Publikacji>
+            <Status>w_trakcie</Status>
+            <Ocena>brak</Ocena>
+        </Wolumin>
+    </Katalog_Zbiorow>
+</Raport_Biblioteczny>
