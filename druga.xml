@@ -1,40 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Raport_Kulturalny xmlns:h="http://example.org/hobby">
-    <Info_Student>
-        <Imie>Hubert</Imie>
-        <Nazwisko>Strękowski</Nazwisko>
-        <Numer_Indeksu>208381</Numer_Indeksu>
-    </Info_Student>
-    <Inwentarz_Ksiazek>
-        <Pozycja nr_katalogowy="101">
-            <Dane_Podstawowe>
-                <Tytul_Glowny>Władca Pierścieni: Drużyna Pierścienia</Tytul_Glowny>
-                <Autor_Dziela>J.R.R. Tolkien</Autor_Dziela>
-            </Dane_Podstawowe>
-            <Status_Czytelnictwa>
-                <Aktualny_Stan>przeczytana</Aktualny_Stan>
-                <Ocena_Uzytkownika>5</Ocena_Uzytkownika>
-            </Status_Czytelnictwa>
-        </Pozycja>
-        <Pozycja nr_katalogowy="102">
-            <Dane_Podstawowe>
-                <Tytul_Glowny>Murder on the Orient Express</Tytul_Glowny>
-                <Autor_Dziela>Agatha Christie</Autor_Dziela>
-            </Dane_Podstawowe>
-            <Status_Czytelnictwa>
-                <Aktualny_Stan>przeczytana</Aktualny_Stan>
-                <Ocena_Uzytkownika>4</Ocena_Uzytkownika>
-            </Status_Czytelnictwa>
-        </Pozycja>
-        <Pozycja nr_katalogowy="103">
-            <Dane_Podstawowe>
-                <Tytul_Glowny>Sapiens: Od zwierząt do bogów</Tytul_Glowny>
-                <Autor_Dziela>Yuval Noah Harari</Autor_Dziela>
-            </Dane_Podstawowe>
-            <Status_Czytelnictwa>
-                <Aktualny_Stan>w_trakcie</Aktualny_Stan>
-                <Ocena_Uzytkownika>brak</Ocena_Uzytkownika>
-            </Status_Czytelnictwa>
-        </Pozycja>
-    </Inwentarz_Ksiazek>
-</Raport_Kulturalny>
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:h="http://example.org/hobby">
+
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" />
+
+    <xsl:template match="/">
+
+        <Raport_Biblioteczny>
+
+            <Metryka_Studenta>
+                <Imie>
+                    <xsl:value-of select="h:Hobby_Czytelnicze/@imie_autora" />
+                </Imie>
+                <Nazwisko>
+                    <xsl:value-of select="h:Hobby_Czytelnicze/@nazwisko_autora" />
+                </Nazwisko>
+                <Indeks>
+                    <xsl:value-of select="h:Hobby_Czytelnicze/@indeks_autora" />
+                </Indeks>
+            </Metryka_Studenta>
+
+            <Katalog_Zbiorow>
+                <xsl:apply-templates select="//h:Ksiazka" />
+            </Katalog_Zbiorow>
+
+        </Raport_Biblioteczny>
+    </xsl:template>
+
+    <xsl:template match="h:Ksiazka">
+
+        <Wolumin>
+            <Identyfikator>
+                <xsl:value-of select="@id" />
+            </Identyfikator>
+
+            <Detale_Publikacji>
+                <Tytul_Dziela>
+                    <xsl:value-of select="h:Tytul" />
+                </Tytul_Dziela>
+
+                <Autor_Calosc>
+                    <xsl:value-of select="h:Autor/h:Imie" />
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="h:Autor/h:Nazwisko" />
+                </Autor_Calosc>
+            </Detale_Publikacji>
+
+            <Status>
+                <xsl:value-of select="@status" />
+            </Status>
+            <Ocena>
+                <xsl:value-of select="@ocena" />
+            </Ocena>
+
+        </Wolumin>
+    </xsl:template>
+
+</xsl:stylesheet>
