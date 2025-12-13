@@ -45,7 +45,6 @@
                     <xsl:attribute name="wersja_jezykowa">
                         <xsl:value-of select="h:Tytul/@h:jezyk" />
                     </xsl:attribute>
-
                     <xsl:value-of select="h:Tytul" />
                 </Tytul_Dziela>
 
@@ -53,7 +52,18 @@
                     <xsl:value-of select="h:Autor/h:Imie" />
                     <xsl:text> </xsl:text>
                     <xsl:value-of select="h:Autor/h:Nazwisko" />
+
+                    <xsl:for-each select="h:Autor/h:Narodowosc">
+                        <xsl:copy>
+                            <xsl:value-of select="." />
+                        </xsl:copy>
+                    </xsl:for-each>
                 </Autor_Calosc>
+
+                <Dane_Techniczne>
+                    <xsl:copy-of select="h:Dane_Wydawnicze/h:ISBN" />
+                </Dane_Techniczne>
+
             </Detale_Publikacji>
 
             <Status>

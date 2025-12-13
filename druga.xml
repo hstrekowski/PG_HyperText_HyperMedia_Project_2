@@ -9,7 +9,14 @@
         <Wolumin nr_inwentarzowy="101">
             <Detale_Publikacji>
                 <Tytul_Dziela wersja_jezykowa="pl">Władca Pierścieni: Drużyna Pierścienia</Tytul_Dziela>
-                <Autor_Calosc>J.R.R. Tolkien</Autor_Calosc>
+                <Autor_Calosc>J.R.R. Tolkien<Narodowosc xmlns="http://example.org/hobby"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">brytyjska</Narodowosc>
+                </Autor_Calosc>
+                <Dane_Techniczne>
+                    <ISBN xmlns="http://example.org/hobby"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        typ="ISBN-13">978-8377852360</ISBN>
+                </Dane_Techniczne>
             </Detale_Publikacji>
             <Status>przeczytana</Status>
             <Ocena>5</Ocena>
@@ -17,7 +24,14 @@
         <Wolumin nr_inwentarzowy="102">
             <Detale_Publikacji>
                 <Tytul_Dziela wersja_jezykowa="en">Murder on the Orient Express</Tytul_Dziela>
-                <Autor_Calosc>Agatha Christie</Autor_Calosc>
+                <Autor_Calosc>Agatha Christie<Narodowosc xmlns="http://example.org/hobby"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">brytyjska</Narodowosc>
+                </Autor_Calosc>
+                <Dane_Techniczne>
+                    <ISBN xmlns="http://example.org/hobby"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        typ="ISBN-13">978-8324578130</ISBN>
+                </Dane_Techniczne>
             </Detale_Publikacji>
             <Status>przeczytana</Status>
             <Ocena>4</Ocena>
@@ -25,7 +39,14 @@
         <Wolumin nr_inwentarzowy="103">
             <Detale_Publikacji>
                 <Tytul_Dziela wersja_jezykowa="pl">Sapiens: Od zwierząt do bogów</Tytul_Dziela>
-                <Autor_Calosc>Yuval Noah Harari</Autor_Calosc>
+                <Autor_Calosc>Yuval Noah Harari<Narodowosc xmlns="http://example.org/hobby"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">izraelska</Narodowosc>
+                </Autor_Calosc>
+                <Dane_Techniczne>
+                    <ISBN xmlns="http://example.org/hobby"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        typ="ISBN-13">978-8380624891</ISBN>
+                </Dane_Techniczne>
             </Detale_Publikacji>
             <Status>w_trakcie</Status>
             <Ocena>brak</Ocena>
