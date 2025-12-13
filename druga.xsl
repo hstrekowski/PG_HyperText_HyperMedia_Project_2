@@ -18,6 +18,13 @@
                 <Indeks>
                     <xsl:value-of select="h:Hobby_Czytelnicze/@indeks_autora" />
                 </Indeks>
+
+                <Podsumowanie_Ilościowe>
+                    <xsl:attribute name="{//h:Liczba_Przeczytanych/@jednostka}">
+                        <xsl:value-of select="//h:Liczba_Przeczytanych" />
+                    </xsl:attribute>
+                </Podsumowanie_Ilościowe>
+
             </Metryka_Studenta>
 
             <Katalog_Zbiorow>
