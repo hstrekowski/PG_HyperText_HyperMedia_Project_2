@@ -41,11 +41,7 @@
                 </em>
             </p>
             <ul>
-                <xsl:for-each select="h:Opis/h:Opis_Rozwiniety/h:Korzysci/h:Punkt">
-                    <li>
-                        <xsl:value-of select="." />
-                    </li>
-                </xsl:for-each>
+                <xsl:apply-templates select="h:Opis/h:Opis_Rozwiniety/h:Korzysci/h:Punkt" />
             </ul>
             <xsl:apply-templates select="h:Statystyki" />
 
@@ -82,6 +78,12 @@
         </div>
     </xsl:template>
 
+    <xsl:template match="h:Punkt">
+        <li>
+            <xsl:value-of select="." />
+        </li>
+    </xsl:template>
+
     <xsl:template match="h:Statystyki_Roczne">
         <h3>Statystyki za rok <xsl:value-of select="@rok" /></h3>
         <ul>
@@ -101,16 +103,18 @@
 
     <xsl:template match="h:Statystyki_Format">
         <h3>Formaty:</h3>
-        <xsl:for-each select="h:Format">
-            <div style="margin-bottom: 5px;">
-                <span style="display:inline-block; width: 80px;"><xsl:value-of select="@nazwa" />:</span>
-                <span
-                    style="background-color: #3498db; color: white; padding: 2px 5px; border-radius: 3px;">
-                    <xsl:value-of select="." />
-                    <xsl:value-of select="@jednostka" />
-                </span>
-            </div>
-        </xsl:for-each>
+        <xsl:apply-templates select="h:Format" />
+    </xsl:template>
+
+    <xsl:template match="h:Format">
+        <div style="margin-bottom: 5px;">
+            <span style="display:inline-block; width: 80px;"><xsl:value-of select="@nazwa" />:</span>
+            <span
+                style="background-color: #3498db; color: white; padding: 2px 5px; border-radius: 3px;">
+                <xsl:value-of select="." />
+                <xsl:value-of select="@jednostka" />
+            </span>
+        </div>
     </xsl:template>
 
     <xsl:template match="h:Ulubione_Gatunki">
