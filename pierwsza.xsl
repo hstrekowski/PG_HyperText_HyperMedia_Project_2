@@ -277,7 +277,7 @@
             <p>Dziękuję za przeglądanie mojego raportu czytelniczego!</p>
             <p>
                 <xsl:value-of
-                    select="concat('Prawa autorskie &#169; ', '2025 ', 'Hubert Strękowski')" />
+                    select="concat('Prawa autorskie &#169; ', 'Hubert Strękowski', ' ', '208381')" />
             </p>
         </div>
     </xsl:template>

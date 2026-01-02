@@ -1,83 +1,83 @@
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 20px;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+a {
+    color: #5dade2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 h1 {
-    background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border-bottom: 2px solid #3498db;
+    color: #5dade2;
+    border-bottom: 2px solid #2980b9;
     padding-bottom: 10px;
 }
 
 h2 {
-    color: #2980b9;
+    color: #85c1e9;
     margin-top: 30px;
 }
 
-
 .card {
-    background: white;
+    background: #1e1e1e;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
 }
-
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: #5dade2;
 }
-
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-    background:
-        white;
+    background: #1e1e1e;
 }
 
 th,
 td {
-    border: 1px solid #ddd;
+    border: 1px solid #444;
     padding: 10px;
     text-align: left;
 }
 
 th {
-    background-color: #3498db;
+    background-color: #2c3e50;
     color: white;
     text-transform: uppercase;
     font-size: 0.9em;
 }
 
-
 tr:hover {
-    background-color: #f1faff;
+    background-color: #2c2c2c;
 }
 
-
 .status-przeczytana {
-    color: green;
+    color: #2ecc71;
     font-weight: bold;
 }
 
 .status-w_trakcie {
-    color: orange;
+    color: #f1c40f;
     font-weight: bold;
 }
 
 .autor-info {
     font-style: italic;
-    color: #555;
+    color: #aaa;
 }
 
 .rola-atrybut {
@@ -92,36 +92,35 @@ img {
     max-width: 100px;
     height: auto;
     border-radius: 4px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    border: 1px solid #444;
 }
 
 .footer {
     margin-top: 40px;
     padding-top: 10px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #333;
     text-align: center;
     font-size: 0.9em;
     color: #777;
 }
 
 .top-pick {
-    color: gold;
+    color: #f1c40f;
     font-weight: bold;
-    text-shadow: 1px 1px 1px #000;
     margin-left: 10px;
 }
 
 .klasyk {
-    background-color: #eee;
-    border: 1px solid #aaa;
+    background-color: #333;
+    border: 1px solid #555;
     padding: 1px 4px;
     font-size: 0.8em;
     border-radius: 3px;
-    color: #555;
+    color: #ccc;
 }
 
 .indeks-box {
-    background-color: #e8f6f3;
+    background-color: #142a25;
     padding: 10px;
     border-left: 5px solid #1abc9c;
     margin-bottom: 20px;
@@ -130,14 +129,14 @@ img {
 
 .lp-col {
     font-weight: bold;
-    color: #555;
+    color: #aaa;
     text-align: center;
     width: 40px;
 }
 
 .xpath-box {
     border: 1px dashed #f39c12;
-    background-color: #fffde7;
+    background-color: #2a2515;
     padding: 10px;
     margin-top: 15px;
     font-size: 0.9em;
